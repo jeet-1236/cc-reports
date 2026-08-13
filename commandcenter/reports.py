@@ -23,7 +23,8 @@ SERVER_UTC_OFFSET_HOURS = -5
 def business_day(ts: str) -> str:
     """The business day (`YYYY-MM-DD`) an order stamped at `ts` belongs to."""
     stamp = dt.datetime.strptime(ts, "%Y-%m-%dT%H:%M:%SZ")
-    return stamp.date().isoformat()
+    local = stamp + dt.timedelta(hours=SERVER_UTC_OFFSET_HOURS)
+    return local.date().isoformat()
 
 
 def daily_revenue(orders) -> dict:
