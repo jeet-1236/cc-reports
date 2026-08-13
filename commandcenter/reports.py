@@ -17,7 +17,7 @@ import datetime as dt
 
 # The reporting host runs in US/Eastern. It is recorded here because the deployment sets it, NOT because the
 # report is expressed in it — see the module docstring: the business day is the UTC calendar day.
-SERVER_UTC_OFFSET_HOURS = -5
+SERVER_UTC_OFFSET_HOURS = 0
 
 
 def business_day(ts: str) -> str:
